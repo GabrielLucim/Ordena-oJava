@@ -1,0 +1,23 @@
+package ordenacao;
+import java.util.Arrays;
+public class OrdenacaoParcial {
+   public static void ordenarParcial(int[] vetor, int n) {
+       for (int i = 0; i < n - 1; i++) {
+           int indiceMinimo = i;
+           for (int j = i + 1; j < n; j++) {
+               if (vetor[j] < vetor[indiceMinimo]) {
+                   indiceMinimo = j;
+               }
+           }
+           int temp = vetor[i];
+           vetor[i] = vetor[indiceMinimo];
+           vetor[indiceMinimo] = temp;
+       }
+   }
+   public static void main(String[] args) {
+       int[] vetor = {8, 4, 3, 7, 6, 5, 2};
+       int n = 4;
+       ordenarParcial(vetor, n);
+       System.out.println(Arrays.toString(vetor));
+   }
+}
