@@ -1,0 +1,33 @@
+package ordenacao;
+import java.util.Arrays;
+public class OrdenacaoString {
+   public static boolean maiorQue(String a, String b) {
+       int menorTamanho = a.length();
+       if (b.length() < menorTamanho) {
+           menorTamanho = b.length();
+       }
+       for (int i = 0; i < menorTamanho; i++) {
+           char ca = a.charAt(i);
+           char cb = b.charAt(i);
+           if (ca > cb) {
+               return true;
+           } else if (ca < cb) {
+               return false;
+           }
+       }
+       return a.length() > b.length();
+   }
+   public static void main(String[] args) {
+       String[] vetor = {"bbb", "aaa", "ccc"};
+       for (int i = 0; i < vetor.length - 1; i++) {
+           for (int j = 0; j < vetor.length - 1 - i; j++) {
+               if (maiorQue(vetor[j], vetor[j + 1])) {
+                   String temp = vetor[j];
+                   vetor[j] = vetor[j + 1];
+                   vetor[j + 1] = temp;
+               }
+           }
+       }
+       System.out.print(Arrays.toString(vetor));
+   }
+}
